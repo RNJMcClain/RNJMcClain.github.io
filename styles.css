@@ -1,0 +1,1107 @@
+/* ============================= */
+/* NATIONAL PARKS THEME           */
+/* Vintage WPA poster aesthetic   */
+/* ============================= */
+:root {
+  --bg: #f4ecd8; /* aged paper cream */
+  --bg-soft: #ece1c6;
+  --surface: #fbf6ea; /* card paper */
+  --surface-2: #f0e6cf;
+  --border: #d9c9a3;
+  --text: #2f2a1d; /* dark bark */
+  --text-muted: #5c5442;
+  --text-dim: #8a7f66;
+  --forest: #2f5d3e; /* deep pine green */
+  --forest-dark: #234a30;
+  --sky: #3a7ca5; /* national park sky blue */
+  --canyon: #c65d3b; /* canyon rust/orange */
+  --canyon-dark: #a94a2c;
+  --sunset: #e4a72c; /* golden hour */
+  --accent: var(--forest);
+  --accent-2: var(--canyon);
+  --accent-glow: rgba(47, 93, 62, 0.28);
+  --gradient: linear-gradient(120deg, #2f5d3e 0%, #3a7ca5 100%);
+  --gradient-warm: linear-gradient(120deg, #c65d3b 0%, #e4a72c 100%);
+  --radius: 14px;
+  --radius-lg: 20px;
+  --shadow: 0 14px 34px rgba(47, 42, 29, 0.18);
+  --maxw: 1150px;
+}
+
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    system-ui,
+    sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Subtle paper texture + topographic tint */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(
+      60rem 40rem at 12% -10%,
+      rgba(58, 124, 165, 0.12),
+      transparent 60%
+    ),
+    radial-gradient(
+      50rem 40rem at 100% 0%,
+      rgba(228, 167, 44, 0.14),
+      transparent 55%
+    );
+  z-index: -1;
+  pointer-events: none;
+}
+
+h1,
+h2,
+h3,
+.logo {
+  font-family: "Rye", "Roboto Slab", Georgia, serif;
+}
+
+a {
+  color: inherit;
+}
+
+/* ============================= */
+/* HEADER / NAV                   */
+/* ============================= */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(244, 236, 216, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 2px solid var(--forest);
+}
+
+.nav {
+  max-width: var(--maxw);
+  margin: auto;
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-weight: 400;
+  font-size: 1.4rem;
+  letter-spacing: 0.03em;
+  color: var(--forest);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  height: 3px;
+  width: 0;
+  background: var(--canyon);
+  transition: width 0.25s ease;
+}
+
+.nav-links a.active,
+.nav-links a:hover {
+  color: var(--forest-dark);
+}
+
+.nav-links a.active::after,
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* ============================= */
+/* LAYOUT                         */
+/* ============================= */
+.main {
+  flex: 1;
+  width: 100%;
+  max-width: var(--maxw);
+  margin: auto;
+  padding: 4.5rem 1.5rem;
+}
+
+.main > h1 {
+  font-size: clamp(2.4rem, 4vw, 3.2rem);
+  letter-spacing: 0.01em;
+  margin-bottom: 0.5rem;
+  color: var(--forest-dark);
+}
+
+.section-intro {
+  color: var(--text-muted);
+  max-width: 640px;
+  margin-bottom: 3rem;
+  font-size: 1.05rem;
+}
+
+/* ============================= */
+/* HERO                           */
+/* ============================= */
+.hero {
+  text-align: center;
+  padding: 3rem 0 1rem;
+  position: relative;
+  animation: fadeUp 0.8s ease both;
+}
+
+.hero-eyebrow {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--surface);
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  background: var(--canyon);
+  margin-bottom: 1.75rem;
+  box-shadow: var(--shadow);
+}
+
+.hero h1 {
+  font-size: clamp(2.8rem, 8vw, 5.5rem);
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+  font-weight: 400;
+  color: var(--forest-dark);
+}
+
+.hero h1 .grad {
+  color: var(--canyon);
+}
+
+.subtitle {
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  margin-top: 1.1rem;
+  color: var(--text);
+  font-weight: 600;
+}
+
+.tagline {
+  max-width: 660px;
+  margin: 1.5rem auto 0;
+  color: var(--text-muted);
+  font-size: 1.05rem;
+}
+
+/* Mountain range silhouette under the hero */
+.hero-scene {
+  position: relative;
+  margin-top: 3rem;
+  height: 180px;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(180deg, #bfe0ec 0%, #e8dab5 100%);
+  border: 2px solid var(--border);
+}
+
+.hero-scene svg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* ============================= */
+/* BUTTONS                        */
+/* ============================= */
+.cta-row {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2.5rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  padding: 0.85rem 1.7rem;
+  border-radius: 999px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.btn.primary {
+  background: var(--canyon);
+  color: var(--surface);
+  box-shadow: 0 8px 22px rgba(198, 93, 59, 0.35);
+}
+
+.btn.primary:hover {
+  transform: translateY(-2px);
+  background: var(--canyon-dark);
+  box-shadow: 0 14px 30px rgba(198, 93, 59, 0.4);
+}
+
+.btn.ghost {
+  background: transparent;
+  color: var(--forest-dark);
+  border-color: var(--forest);
+}
+
+.btn.ghost:hover {
+  transform: translateY(-2px);
+  background: var(--forest);
+  color: var(--surface);
+}
+
+/* ============================= */
+/* STATS STRIP (trail markers)    */
+/* ============================= */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  margin: 4.5rem 0;
+}
+
+.stat {
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.6rem 1.25rem;
+  text-align: center;
+  position: relative;
+}
+
+.stat::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: var(--gradient-warm);
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+
+.stat .num {
+  font-family: "Rye", "Roboto Slab", serif;
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--canyon);
+}
+
+.stat .label {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-top: 0.3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* ============================= */
+/* SKILLS SECTION                 */
+/* ============================= */
+.skills-section {
+  margin-top: 5rem;
+}
+
+.skills-heading {
+  text-align: center;
+  font-size: clamp(1.9rem, 3vw, 2.4rem);
+  letter-spacing: 0.01em;
+  margin-bottom: 0.5rem;
+  color: var(--forest-dark);
+}
+
+.skills-sub {
+  text-align: center;
+  color: var(--text-muted);
+  margin-bottom: 2.75rem;
+}
+
+.skills-grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.skill-group {
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.skill-group:hover {
+  transform: translateY(-4px);
+  border-color: var(--forest);
+  box-shadow: var(--shadow);
+}
+
+.skill-group h3 {
+  font-size: 1.15rem;
+  margin-bottom: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--forest-dark);
+}
+
+.skill-group h3::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--canyon);
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  font-size: 0.8rem;
+  color: var(--forest-dark);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  font-weight: 500;
+}
+
+/* ============================= */
+/* PROJECTS                       */
+/* ============================= */
+.project-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.project-card {
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.9rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  color: var(--forest-dark);
+}
+
+.project-skills {
+  font-size: 0.85rem;
+  color: var(--canyon);
+  margin-bottom: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.project-card p.project-preview {
+  color: var(--text-muted);
+}
+
+.project-card.clickable {
+  cursor: pointer;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.project-card.clickable:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow);
+  border-color: var(--forest);
+}
+
+.card-hint {
+  margin-top: 1.25rem;
+  font-size: 0.82rem;
+  color: var(--sky);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* ============================= */
+/* EXPERIENCE (TRAIL)             */
+/* ============================= */
+.experience-list {
+  display: grid;
+  gap: 1.5rem;
+  position: relative;
+}
+
+.experience-card {
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.9rem;
+  border-left: 6px solid var(--forest);
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.experience-card:hover {
+  transform: translateX(4px);
+  border-left-color: var(--canyon);
+  box-shadow: var(--shadow);
+}
+
+.experience-card .role-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.experience-card h3 {
+  font-size: 1.3rem;
+  color: var(--forest-dark);
+}
+
+.company {
+  font-weight: 600;
+  color: var(--canyon);
+  margin-top: 0.2rem;
+}
+
+.date {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+.experience-card ul {
+  padding-left: 1.2rem;
+  margin-top: 1rem;
+}
+
+.experience-card li {
+  margin-bottom: 0.5rem;
+  color: var(--text-muted);
+}
+
+.experience-card li::marker {
+  color: var(--forest);
+}
+
+/* ============================= */
+/* CONTACT                        */
+/* ============================= */
+.contact {
+  max-width: 560px;
+  margin: auto;
+  text-align: center;
+}
+
+.contact h1 {
+  font-size: clamp(2.4rem, 4vw, 3.2rem);
+  margin-bottom: 1rem;
+  letter-spacing: 0.01em;
+  color: var(--forest-dark);
+}
+
+.contact-intro {
+  color: var(--text-muted);
+  margin-bottom: 2.5rem;
+}
+
+.contact-details {
+  list-style: none;
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+  text-align: left;
+}
+
+.contact-details li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  transition: border-color 0.2s ease;
+}
+
+.contact-details li:hover {
+  border-color: var(--forest);
+}
+
+.contact-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-dim);
+  font-weight: 700;
+}
+
+.contact-details a,
+.contact-details li > span:not(.contact-label) {
+  color: var(--forest-dark);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.contact-details a:hover {
+  color: var(--canyon);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  text-align: left;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea {
+  font-family: inherit;
+  padding: 0.8rem 1rem;
+  font-size: 0.95rem;
+  border-radius: 12px;
+  border: 2px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--text-dim);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--forest);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+.contact-form .btn {
+  align-self: center;
+  margin-top: 0.5rem;
+}
+
+/* ============================= */
+/* FOOTER                         */
+/* ============================= */
+.footer {
+  border-top: 2px solid var(--forest);
+  background: var(--bg-soft);
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+}
+
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.footer-social a {
+  color: var(--forest-dark);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  transition: color 0.2s ease;
+}
+
+.footer-social a:hover {
+  color: var(--canyon);
+}
+
+.footer-copy {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+}
+
+/* ============================= */
+/* MODAL                          */
+/* ============================= */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(47, 42, 29, 0.55);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: var(--surface);
+  border: 2px solid var(--forest);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  max-width: 560px;
+  width: 100%;
+  position: relative;
+  box-shadow: var(--shadow);
+  animation: popIn 0.25s ease;
+}
+
+.modal-content h2 {
+  font-size: 1.9rem;
+  margin-bottom: 0.5rem;
+  color: var(--forest-dark);
+}
+
+.modal-skills {
+  font-size: 0.9rem;
+  color: var(--canyon);
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.modal-content p {
+  color: var(--text-muted);
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1.2rem;
+  font-size: 1.6rem;
+  line-height: 1;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.modal-close:hover {
+  color: var(--canyon);
+}
+
+/* ============================= */
+/* ANIMATIONS                     */
+/* ============================= */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================= */
+/* RESPONSIVE                     */
+/* ============================= */
+@media (max-width: 720px) {
+  .nav-links {
+    gap: 1.1rem;
+  }
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .main {
+    padding: 3rem 1.25rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .nav-links {
+    gap: 0.75rem;
+    font-size: 0.78rem;
+  }
+}
+
+/* ============================= */
+/* BADGE-STYLE FOOTER LINKS       */
+/* ============================= */
+.footer-social {
+  flex-wrap: wrap;
+}
+
+.footer-social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.1rem;
+  background: var(--surface);
+  border: 2px solid var(--forest);
+  border-radius: 999px;
+  text-transform: none;
+  letter-spacing: 0.02em;
+  box-shadow: 0 4px 10px rgba(47, 42, 29, 0.1);
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.footer-social a:hover {
+  transform: translateY(-2px);
+  background: var(--forest);
+  color: var(--surface);
+  border-color: var(--forest);
+}
+
+.footer-social a .badge-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+/* ============================= */
+/* PARKS PAGE                     */
+/* ============================= */
+.parks-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.park-badge {
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  text-align: center;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.park-badge:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow);
+  border-color: var(--forest);
+}
+
+/* Circular arrowhead-style emblem */
+.park-emblem {
+  width: 110px;
+  height: 110px;
+  margin: 0 auto 1.1rem;
+  border-radius: 50%;
+  background: rgb(80, 160, 230);
+  border: 4px solid var(--sunset);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: inset 0 -8px 18px rgba(0, 0, 0, 0.15);
+}
+
+.park-emblem svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.park-badge h3 {
+  font-size: 1.25rem;
+  color: var(--forest-dark);
+  margin-bottom: 0.25rem;
+}
+
+.park-location {
+  font-size: 0.85rem;
+  color: var(--canyon);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.6rem;
+}
+
+.park-note {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.park-year {
+  display: inline-block;
+  margin-top: 0.9rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+}
+
+.parks-count {
+  text-align: center;
+  margin: 2rem auto 3rem;
+  font-family: "Rye", "Roboto Slab", serif;
+  font-size: 1.4rem;
+  color: var(--canyon);
+}
+
+/* ============================= */
+/* PARKS MAP                      */
+/* ============================= */
+.map-wrap {
+  margin: 0 0 3rem;
+}
+
+#parkMap {
+  height: 440px;
+  width: 100%;
+  border-radius: var(--radius-lg);
+  border: 3px solid var(--forest);
+  box-shadow: var(--shadow);
+  background: #dfeaf0;
+  z-index: 1;
+}
+
+.map-legend {
+  display: flex;
+  justify-content: center;
+  gap: 1.75rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.legend-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: transparent;
+  border: 2px solid var(--text-dim);
+}
+
+.legend-dot.visited {
+  background: var(--forest);
+  border-color: var(--forest-dark);
+}
+
+/* Map pins (Leaflet divIcon) */
+.park-pin {
+  display: block;
+  width: 18px;
+  height: 18px;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  background: #fbf6ea;
+  border: 3px solid var(--text-dim);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.park-pin.visited {
+  background: var(--forest);
+  border-color: var(--sunset);
+}
+
+/* Not-visited badges read as "aspirational" */
+.park-badge.not-visited {
+  border-style: dashed;
+}
+
+.park-badge.not-visited .park-emblem {
+  filter: saturate(0.45) opacity(0.75);
+}
+
+.park-year.bucket {
+  color: var(--sky);
+  background: #e2eef4;
+  border-color: #bcd7e5;
+}
+
+/* Leaflet popup — parks theme */
+.leaflet-popup-content-wrapper {
+  background: var(--surface);
+  color: var(--text);
+  border: 2px solid var(--forest);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.leaflet-popup-tip {
+  background: var(--surface);
+  border: 2px solid var(--forest);
+}
+
+.park-popup {
+  font-family: "Inter", sans-serif;
+  min-width: 180px;
+}
+
+.park-popup strong {
+  font-family: "Rye", "Roboto Slab", serif;
+  font-size: 1.1rem;
+  color: var(--forest-dark);
+}
+
+.park-popup .popup-state {
+  font-size: 0.8rem;
+  color: var(--canyon);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin: 0.15rem 0 0.5rem;
+}
+
+.park-popup p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.park-popup .popup-status {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--forest-dark);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+}
+
+@media (max-width: 720px) {
+  #parkMap {
+    height: 340px;
+  }
+}

@@ -1,51 +1,254 @@
-<!DOCTYPE html>
-<html>
-    <head>
-    <meta charset="utf-8">
-    <title>Riley Spence</title>
-    <link rel='stylesheet' href='Styles/styleI.css'>
-    <link rel="icon" type="image/x-icon" href="photos/Rfavicon.png">
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Riley McClain — Software Developer</title>
+    <meta
+      name="description"
+      content="Riley McClain — Software Engineer specializing in full-stack development and Salesforce. Summa Cum Laude graduate building products people love to use."
+    />
 
-    </head>
-    <body>
-        <img id ="banner" src="photos/christoffer-engstrom-wc9avd2RaN0-unsplash.jpg" alt="Picture of wave">
-        <img id ="profilepicture" src="photos/profile.png">
-        <h1 id = "name">Riley Spence</h1>
-        
-        <p id = "story">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Et molestie ac feugiat sed lectus. Mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus et. 
-            Arcu non sodales neque sodales ut etiam sit amet nisl. Ultrices mi tempus imperdiet nulla malesuada. 
-            Nunc consequat interdum varius sit amet mattis vulputate enim nulla. Nec feugiat in fermentum posuere urna nec tincidunt. 
-            Sollicitudin nibh sit amet commodo nulla facilisi. Amet consectetur adipiscing elit duis. Nunc faucibus a pellentesque sit. 
-            Lectus mauris ultrices eros in cursus turpis. Quis varius quam quisque id diam vel quam elementum. Montes nascetur ridiculus mus mauris vitae. 
-            Risus nullam eget felis eget nunc lobortis. Magna etiam tempor orci eu lobortis elementum. Pellentesque elit eget gravida cum sociis natoque penatibus et magnis. 
-            Tempus quam pellentesque nec nam aliquam sem.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Et molestie ac feugiat.
-            <br>
-            <br>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Et molestie ac feugiat sed lectus. Mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus et. 
-            Arcu non sodales neque sodales ut etiam sit amet nisl. Ultrices mi tempus imperdiet nulla malesuada. 
-            Nunc consequat interdum varius sit amet mattis vulputate enim nulla. Nec feugiat in fermentum posuere urna nec tincidunt. 
-            Sollicitudin nibh sit amet commodo nulla facilisi. Amet consectetur adipiscing elit duis. Nunc faucibus a pellentesque sit. 
-            Lectus mauris ultrices eros in cursus turpis. Quis varius quam quisque id diam vel quam elementum. Montes nascetur ridiculus mus mauris vitae. 
-            Risus nullam eget felis eget nunc lobortis. Magna etiam tempor orci eu lobortis elementum. Pellentesque elit eget gravida cum sociis natoque penatibus et magnis.
-            Tempus quam pellentesque nec nam aliquam sem. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Et molestie.
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Rye&family=Roboto+Slab:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="data.js" defer></script>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <span class="logo">RM</span>
+        <ul class="nav-links">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="experience.html">Experience</a></li>
+          <li><a href="parks.html">Parks</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="main">
+      <section class="hero">
+        <span class="hero-eyebrow"
+          >Software Engineer · Salesforce Developer · Dayton, OH</span
+        >
+        <h1>Hi, I'm <span class="grad">Riley McClain</span></h1>
+        <p class="subtitle">
+          I build full-stack apps and Salesforce solutions.
         </p>
-        <navbar id = "nav">
-            <ul>
-                <li id="ac"><a href="index.html">Home</a></li>
-                <li id="list"><a href="MyWorks.html">My Works</a></li>
-                <li id="list"><a href="Resume.html">Resume</a></li>
-                <li id="list"><a href="ContactMe.html">Contact Me</a></li>
-            </ul>
-        </navbar>
-        <p id="space"> </p>
-    </body>
-    <footer>
-        <p>________________________________________________________________</p>
-        <p>Riley Spence | Software Enginner | Californai Baptist University</p>
+        <p class="tagline">
+          Software Engineering graduate from California Baptist University. From
+          custom Lightning Web Components to cross-platform apps in Flutter and
+          .NET, I love working with clients and UX teams to ship products people
+          actually enjoy using.
+        </p>
+        <div class="cta-row">
+          <a href="projects.html" class="btn primary">Explore my work →</a>
+          <a href="contact.html" class="btn ghost">Get in touch</a>
+        </div>
+
+        <div class="hero-scene" aria-hidden="true">
+          <svg viewBox="0 0 1200 200" preserveAspectRatio="xMidYMax slice">
+            <!-- sun -->
+            <circle cx="960" cy="70" r="34" fill="#e4a72c" />
+            <!-- back mountain range (sky blue) -->
+            <path
+              d="M0 200 L0 130 L130 70 L300 160 L450 40 L640 170 L790 50 L1000 150 L1200 80 L1200 200 Z"
+              fill="#3a7ca5"
+              opacity="0.55"
+            />
+            <!-- mid range (pine) -->
+            <path
+              d="M0 200 L0 160 L250 60 L360 110 L520 40 L700 120 L880 60 L1050 130 L1200 100 L1200 200 Z"
+              fill="#2f5d3e"
+              opacity="0.85"
+            />
+            <!-- snow cap on main peak -->
+            <path
+              d="M520 40 L455 68 L485 63 L505 68 L525 63 L545 68 L560 63 L585 68 Z"
+              fill="#f4ecd8"
+            />
+            <!-- front range (dark pine) -->
+            <path
+              d="M0 200 L0 130 L140 150 L340 75 L560 150 L700 90 L960 150 L1110 100 L1200 120 L1200 200 Z"
+              fill="#234a30"
+            />
+            <!-- foreground pines -->
+            <g fill="#1c3a26">
+              <path d="M100 200 L120 150 L140 200 Z" />
+              <path d="M132 200 L140 172 L148 200 Z" />
+              <path d="M420 200 L442 140 L464 200 Z" />
+              <path d="M412 200 L422 165 L432 200 Z" />
+              <path d="M860 200 L880 148 L900 200 Z" />
+              <path d="M892 200 L900 170 L908 200 Z" />
+            </g>
+          </svg>
+        </div>
+      </section>
+
+      <section class="stats reveal">
+        <div class="stat">
+          <div class="num" id="stat-years">2+</div>
+          <div class="label">Years building software</div>
+        </div>
+        <div class="stat">
+          <div class="num">10+</div>
+          <div class="label">Languages & frameworks</div>
+        </div>
+        <div class="stat">
+          <div class="num" id="stat-roles">7</div>
+          <div class="label">Roles &amp; internships</div>
+        </div>
+        <div class="stat">
+          <div class="num">5+</div>
+          <div class="label">Shipped projects</div>
+        </div>
+      </section>
+
+      <section class="skills-section reveal">
+        <h2 class="skills-heading">Skills &amp; Tools</h2>
+        <p class="skills-sub">
+          The technologies I reach for to design, build, and ship.
+        </p>
+        <div class="skills-grid">
+          <div class="skill-group">
+            <h3>Languages</h3>
+            <div class="tag-list">
+              <span class="tag">Java</span>
+              <span class="tag">C++</span>
+              <span class="tag">C#</span>
+              <span class="tag">.NET</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">SQL</span>
+              <span class="tag">JSON</span>
+              <span class="tag">Dart</span>
+              <span class="tag">React Native</span>
+              <span class="tag">Flutter</span>
+              <span class="tag">Python</span>
+              <span class="tag">Swift</span>
+              <span class="tag">Go</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h3>Salesforce</h3>
+            <div class="tag-list">
+              <span class="tag">Apex</span>
+              <span class="tag">SOQL</span>
+              <span class="tag">Lightning Web Components</span>
+              <span class="tag">Flows</span>
+              <span class="tag">Experience Sites</span>
+              <span class="tag">Custom Objects</span>
+              <span class="tag">Data Modeling</span>
+              <span class="tag">Custom Metadata Types</span>
+              <span class="tag">Validation Rules</span>
+              <span class="tag">Reports &amp; Dashboards</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h3>Frameworks &amp; Tools</h3>
+            <div class="tag-list">
+              <span class="tag">Flutter</span>
+              <span class="tag">Google Firebase</span>
+              <span class="tag">WordPress</span>
+              <span class="tag">Google AppSheet</span>
+              <span class="tag">Platform.io</span>
+              <span class="tag">AWS EventBridge</span>
+              <span class="tag">GitHub</span>
+              <span class="tag">GitLab</span>
+              <span class="tag">Jira</span>
+              <span class="tag">Confluence</span>
+              <span class="tag">VS Code</span>
+              <span class="tag">Postman</span>
+              <span class="tag">Kiro</span>
+              <span class="tag">AWS</span>
+              <span class="tag">EventBridge</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h3>Design &amp; Process</h3>
+            <div class="tag-list">
+              <span class="tag">Figma</span>
+              <span class="tag">Figma Dev Mode</span>
+              <span class="tag">SAFe Agile</span>
+              <span class="tag">UX Collaboration</span>
+              <span class="tag">Rapid Prototyping</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h3>Operating Systems</h3>
+            <div class="tag-list">
+              <span class="tag">Windows</span>
+              <span class="tag">macOS</span>
+              <span class="tag">Android</span>
+              <span class="tag">iOS</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h3>Languages Spoken</h3>
+            <div class="tag-list">
+              <span class="tag">English</span>
+              <span class="tag">Spanish (Proficient)</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-social">
+        <a
+          href="https://www.linkedin.com/in/rileynjmcclain"
+          target="_blank"
+          rel="noopener"
+        >
+          <svg
+            class="badge-icon"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9h4v12H3zM9 9h3.8v1.6h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.35c0-1.27-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"
+            />
+          </svg>
+          LinkedIn
+        </a>
+        <a href="mailto:rileyn.mcclain@gmail.com">
+          <svg
+            class="badge-icon"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              d="M2 5.5A1.5 1.5 0 013.5 4h17A1.5 1.5 0 0122 5.5v13a1.5 1.5 0 01-1.5 1.5h-17A1.5 1.5 0 012 18.5zM4 7.2v.3l8 5 8-5v-.3l-8 5z"
+            />
+          </svg>
+          Email
+        </a>
+        <a href="tel:+18055519979">
+          <svg
+            class="badge-icon"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.3 1z"
+            />
+          </svg>
+          Call
+        </a>
+      </div>
+      <div class="footer-copy">© 2026 Riley McClain</div>
     </footer>
+  </body>
 </html>
