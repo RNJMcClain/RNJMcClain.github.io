@@ -692,6 +692,101 @@ a {
   font-weight: 600;
 }
 
+/* Utility: hide an element regardless of its default display. */
+.hidden {
+  display: none !important;
+}
+
+/* Confirmation panel shown after a successful send. */
+.form-confirmation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.75rem;
+  padding: 2.5rem 1.75rem;
+  background: var(--surface);
+  border: 2px solid var(--forest);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  animation: confirmation-in 0.4s ease both;
+}
+
+.form-confirmation h2 {
+  font-family: "Rye", "Roboto Slab", serif;
+  font-size: 1.6rem;
+  color: var(--forest-dark);
+  margin: 0;
+}
+
+.form-confirmation p {
+  color: var(--text-muted);
+  max-width: 420px;
+  margin: 0;
+}
+
+.form-confirmation .btn {
+  margin-top: 0.75rem;
+}
+
+.confirmation-check {
+  width: 72px;
+  height: 72px;
+}
+
+.confirmation-check circle {
+  stroke: var(--forest);
+  stroke-width: 3;
+  stroke-dasharray: 151;
+  stroke-dashoffset: 151;
+  animation: check-circle 0.5s ease-out 0.1s forwards;
+}
+
+.confirmation-check path {
+  stroke: var(--forest);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: check-mark 0.3s ease-out 0.5s forwards;
+}
+
+@keyframes confirmation-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes check-circle {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes check-mark {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .form-confirmation,
+  .confirmation-check circle,
+  .confirmation-check path {
+    animation: none;
+  }
+  .confirmation-check circle,
+  .confirmation-check path {
+    stroke-dashoffset: 0;
+  }
+}
+
 /* ============================= */
 /* FOOTER                         */
 /* ============================= */

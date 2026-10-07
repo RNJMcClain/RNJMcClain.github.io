@@ -333,6 +333,31 @@ const contactForm = document.getElementById("contactForm");
 if (contactForm) {
   const statusEl = document.getElementById("formStatus");
   const submitBtn = contactForm.querySelector('button[type="submit"]');
+  const confirmationEl = document.getElementById("formConfirmation");
+  const sendAnotherBtn = document.getElementById("sendAnother");
+
+  // Swap the form out for the big confirmation panel.
+  const showConfirmation = () => {
+    contactForm.classList.add("hidden");
+    if (confirmationEl) {
+      confirmationEl.classList.remove("hidden");
+      confirmationEl.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  };
+
+  // Bring the (reset) form back when the visitor wants to send another.
+  if (sendAnotherBtn) {
+    sendAnotherBtn.addEventListener("click", () => {
+      if (confirmationEl) confirmationEl.classList.add("hidden");
+      contactForm.reset();
+      if (statusEl) {
+        statusEl.textContent = "";
+        delete statusEl.dataset.state;
+      }
+      contactForm.classList.remove("hidden");
+      contactForm.scrollIntoView({ behavior: "smooth", block: "center" });
+    });
+  }
 
   contactForm.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -354,8 +379,9 @@ if (contactForm) {
       });
 
       if (response.ok) {
-        setStatus("Thanks! Your message has been sent.", "success");
+        setStatus("", "success");
         contactForm.reset();
+        showConfirmation();
       } else {
         const data = await response.json().catch(() => ({}));
         const msg =
