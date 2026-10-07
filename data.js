@@ -865,6 +865,16 @@ window.PROJECTS = [
       "An Experience Site that lets users view knowledge articles created by Knowledge Managers. Built to give users a deeper understanding of Compassion International and to provide documentation. Includes a backend that lets users request articles, which are routed to a Knowledge Manager's queue for creation.",
   },
   {
+    title: "VEX U Robotics",
+    heading: "CBU VEX U Team",
+    skills: "C++ · Team Leadership · Project Management",
+    skillsFull:
+      "C++ · Autonomous Programming · Robotics · Team Leadership · Project Management · Agile Collaboration",
+    preview: "Co-led software team and became Project Manager of the team.",
+    description:
+      "Competed in the VEX U collegiate robotics competition. Started as co-lead for software development, writing the autonomous and driver-control code in C++ . Later stepped into an administrative assistant role, acting as project manager for the entire team — coordinating schedules, tracking tasks and deadlines, and keeping software, hardware, and design efforts aligned toward competition goals.",
+  },
+  {
     title: "Flight Simulator Log — Capstone",
     heading: "Flight Simulator Log",
     skills: "C# · .NET · Firebase",
