@@ -322,3 +322,55 @@ if (revealEls.length) {
 
   revealEls.forEach((el) => observer.observe(el));
 }
+
+// ============================
+// CONTACT FORM (contact page)
+// Submits to Formspree via fetch so the visitor stays on the
+// page, with inline success / error feedback.
+// ============================
+const contactForm = document.getElementById("contactForm");
+
+if (contactForm) {
+  const statusEl = document.getElementById("formStatus");
+  const submitBtn = contactForm.querySelector('button[type="submit"]');
+
+  contactForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const setStatus = (msg, state) => {
+      if (!statusEl) return;
+      statusEl.textContent = msg;
+      statusEl.dataset.state = state; // "success" | "error" | "sending"
+    };
+
+    setStatus("Sending…", "sending");
+    if (submitBtn) submitBtn.disabled = true;
+
+    try {
+      const response = await fetch(contactForm.action, {
+        method: "POST",
+        body: new FormData(contactForm),
+        headers: { Accept: "application/json" },
+      });
+
+      if (response.ok) {
+        setStatus("Thanks! Your message has been sent.", "success");
+        contactForm.reset();
+      } else {
+        const data = await response.json().catch(() => ({}));
+        const msg =
+          data && data.errors
+            ? data.errors.map((err) => err.message).join(", ")
+            : "Something went wrong. Please try again or email me directly.";
+        setStatus(msg, "error");
+      }
+    } catch (err) {
+      setStatus(
+        "Network error. Please try again or email me directly.",
+        "error",
+      );
+    } finally {
+      if (submitBtn) submitBtn.disabled = false;
+    }
+  });
+}
