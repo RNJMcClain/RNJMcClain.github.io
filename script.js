@@ -333,31 +333,29 @@ const contactForm = document.getElementById("contactForm");
 if (contactForm) {
   const statusEl = document.getElementById("formStatus");
   const submitBtn = contactForm.querySelector('button[type="submit"]');
-  const confirmationEl = document.getElementById("formConfirmation");
-  const sendAnotherBtn = document.getElementById("sendAnother");
+  const confirmModal = document.getElementById("confirmModal");
+  const confirmClose = document.getElementById("confirmClose");
+  const confirmOk = document.getElementById("confirmOk");
 
-  // Swap the form out for the big confirmation panel.
-  const showConfirmation = () => {
-    contactForm.classList.add("hidden");
-    if (confirmationEl) {
-      confirmationEl.classList.remove("hidden");
-      confirmationEl.scrollIntoView({ behavior: "smooth", block: "center" });
-    }
+  // Show / hide the confirmation popup.
+  const openConfirm = () => {
+    if (confirmModal) confirmModal.classList.remove("hidden");
+  };
+  const closeConfirm = () => {
+    if (confirmModal) confirmModal.classList.add("hidden");
   };
 
-  // Bring the (reset) form back when the visitor wants to send another.
-  if (sendAnotherBtn) {
-    sendAnotherBtn.addEventListener("click", () => {
-      if (confirmationEl) confirmationEl.classList.add("hidden");
-      contactForm.reset();
-      if (statusEl) {
-        statusEl.textContent = "";
-        delete statusEl.dataset.state;
-      }
-      contactForm.classList.remove("hidden");
-      contactForm.scrollIntoView({ behavior: "smooth", block: "center" });
+  if (confirmClose) confirmClose.addEventListener("click", closeConfirm);
+  if (confirmOk) confirmOk.addEventListener("click", closeConfirm);
+  if (confirmModal) {
+    // Click the dark backdrop to dismiss.
+    confirmModal.addEventListener("click", (e) => {
+      if (e.target === confirmModal) closeConfirm();
     });
   }
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeConfirm();
+  });
 
   contactForm.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -381,7 +379,7 @@ if (contactForm) {
       if (response.ok) {
         setStatus("", "success");
         contactForm.reset();
-        showConfirmation();
+        openConfirm();
       } else {
         const data = await response.json().catch(() => ({}));
         const msg =
